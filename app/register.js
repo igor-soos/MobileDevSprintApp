@@ -6,12 +6,21 @@ import {
   ScrollView,
 } from "react-native";
 
+import { useState } from "react";
+
 import { router } from "expo-router";
+
+import { saveData } from "../src/services/storage";
 
 import { globalStyles } from "../src/styles/globalStyles";
 import { COLORS } from "../src/styles/colors";
 
 export default function Register() {
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <ScrollView
       style={{
@@ -31,14 +40,19 @@ export default function Register() {
       </Text>
 
       <View style={{ marginTop: 30 }}>
+
         <TextInput
           placeholder="Nome completo"
+          value={name}
+          onChangeText={setName}
           style={globalStyles.input}
         />
 
         <TextInput
           placeholder="E-mail"
           keyboardType="email-address"
+          value={email}
+          onChangeText={setEmail}
           style={globalStyles.input}
         />
 
@@ -57,6 +71,8 @@ export default function Register() {
         <TextInput
           placeholder="Senha"
           secureTextEntry
+          value={password}
+          onChangeText={setPassword}
           style={globalStyles.input}
         />
 
@@ -73,7 +89,18 @@ export default function Register() {
               marginTop: 10,
             },
           ]}
-          onPress={() => router.push("/(tabs)/home")}
+          onPress={async () => {
+
+            const user = {
+              name,
+              email,
+              password,
+            };
+
+            await saveData("user", user);
+
+            router.push("/(tabs)/home");
+          }}
         >
           <Text style={globalStyles.buttonText}>
             Criar conta
@@ -96,6 +123,7 @@ export default function Register() {
             Já possui conta? Entrar
           </Text>
         </TouchableOpacity>
+
       </View>
     </ScrollView>
   );
