@@ -6,17 +6,30 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
 import { COLORS } from "../../src/styles/colors";
-import { globalStyles } from "../../src/styles/globalStyles";
+import { getData } from "../../src/services/storage";
+import { removeData } from "../../src/services/storage";
+import { router } from "expo-router";
 
 export default function Profile() {
+
+  const [user, setUser] = useState(null);
   const [offerNotifications, setOfferNotifications] =
     useState(true);
-
   const [reviewNotifications, setReviewNotifications] =
     useState(true);
+
+  useEffect(() => {
+  async function loadUser() {
+    const storedUser = await getData("user");
+
+    if (storedUser) {
+      setUser(storedUser);
+    }
+  }
+  loadUser();
+}, []);
 
   return (
     <ScrollView
@@ -53,7 +66,7 @@ export default function Profile() {
               fontWeight: "bold",
             }}
           >
-            I
+            {user?.name?.charAt(0).toUpperCase() || "U"}
           </Text>
         </View>
 
@@ -65,7 +78,7 @@ export default function Profile() {
             marginTop: 15,
           }}
         >
-          Igor
+          {user?.name || "Usuário"}
         </Text>
 
         <Text
@@ -99,15 +112,15 @@ export default function Profile() {
         </Text>
 
         <Text style={{ marginBottom: 10 }}>
-          📧 igor@email.com
+          📧 {user?.email || "email@ford.com"}
         </Text>
 
         <Text style={{ marginBottom: 10 }}>
-          📱 (11) 99999-9999
+          📱 {user?.phone || "(00) 00000-0000"}
         </Text>
 
         <Text>
-          🚘 Ford Ranger 2024
+          🚘 VIN: {user?.vin || "Não cadastrado"}
         </Text>
       </View>
 
@@ -211,6 +224,11 @@ export default function Profile() {
 
       {/* BOTÃO */}
       <TouchableOpacity
+          onPress={async () => {
+            await removeData("user");
+
+            router.replace("/");
+          }}
         style={{
           backgroundColor: "#D9534F",
           padding: 16,

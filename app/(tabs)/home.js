@@ -4,12 +4,25 @@ import {
   ScrollView,
   TouchableOpacity,
 } from "react-native";
-import Animated, {
-  FadeInDown,
-} from "react-native-reanimated";
 import { COLORS } from "../../src/styles/colors";
+import { useEffect, useState } from "react";
+import { getData } from "../../src/services/storage";
 
 export default function Home() {
+
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    async function loadUser() {
+      const storedUser = await getData("user");
+
+      if (storedUser) {
+        setUser(storedUser);
+      }
+    }
+
+    loadUser();
+  }, []);
+
   return (
     <ScrollView
       style={{
@@ -22,8 +35,7 @@ export default function Home() {
       }}
     >
       {/* HEADER */}
-      <Animated.View
-          entering={FadeInDown.duration(700)} style={{ marginTop: 10 }}>
+      <View>
         <Text
           style={{
             fontSize: 16,
@@ -41,9 +53,9 @@ export default function Home() {
             marginTop: 5,
           }}
         >
-          Igor
+          {user?.name || "Cliente"}
         </Text>
-      </Animated.View>
+      </View>
 
       {/* CARD PRINCIPAL */}
       <View
@@ -137,7 +149,7 @@ export default function Home() {
             color: COLORS.textSecondary,
           }}
         >
-          VIN: 3FTTW8S98RRA12345
+          VIN: {user?.vin || "Não cadastrado"}
         </Text>
       </View>
 
@@ -252,7 +264,7 @@ export default function Home() {
               color: COLORS.primaryDark,
             }}
           >
-            Acessórios
+            Brindes
           </Text>
 
           <Text

@@ -7,7 +7,6 @@ import {
 } from "react-native";
 
 import { useState } from "react";
-
 import { COLORS } from "../../src/styles/colors";
 import { globalStyles } from "../../src/styles/globalStyles";
 

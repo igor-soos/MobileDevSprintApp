@@ -25,10 +25,10 @@ export default function Offers() {
     },
 
     {
-      title: "Acessórios Ford",
+      title: "Brindes Ford",
       discount: "15% OFF",
       description:
-        "Capotas, multimídia e acessórios originais.",
+        "Utilize seus pontos para ganhar brindes!",
     },
 
     {

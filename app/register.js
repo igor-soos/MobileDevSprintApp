@@ -7,11 +7,8 @@ import {
 } from "react-native";
 
 import { useState } from "react";
-
 import { router } from "expo-router";
-
 import { saveData } from "../src/services/storage";
-
 import { globalStyles } from "../src/styles/globalStyles";
 import { COLORS } from "../src/styles/colors";
 
@@ -19,6 +16,8 @@ export default function Register() {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [vin, setVin] = useState("");
   const [password, setPassword] = useState("");
 
   return (
@@ -65,6 +64,15 @@ export default function Register() {
         <TextInput
           placeholder="Telefone"
           keyboardType="phone-pad"
+          value={phone}
+          onChangeText={setPhone}
+          style={globalStyles.input}
+        />
+
+        <TextInput
+          placeholder="VIN do veículo"
+          value={vin}
+          onChangeText={setVin}
           style={globalStyles.input}
         />
 
@@ -94,6 +102,8 @@ export default function Register() {
             const user = {
               name,
               email,
+              phone,
+              vin,
               password,
             };
 

@@ -4,6 +4,7 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
+
 import { useState } from "react";
 import { router } from "expo-router";
 import { globalStyles } from "../src/styles/globalStyles";
