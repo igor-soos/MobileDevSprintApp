@@ -44,9 +44,11 @@ export default function Offers() {
       style={{
         flex: 1,
         backgroundColor: COLORS.background,
+        paddingTop:20,
       }}
       contentContainerStyle={{
         padding: 20,
+        paddingBottom: 120,
       }}
     >
       <Text style={globalStyles.title}>

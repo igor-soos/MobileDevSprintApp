@@ -7,6 +7,7 @@ import {
 import { COLORS } from "../../src/styles/colors";
 import { useEffect, useState } from "react";
 import { getData } from "../../src/services/storage";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function Home() {
 
@@ -31,7 +32,7 @@ export default function Home() {
       }}
       contentContainerStyle={{
         padding: 20,
-        paddingBottom: 40,
+        paddingBottom: 120,
       }}
     >
       {/* HEADER */}
@@ -40,6 +41,7 @@ export default function Home() {
           style={{
             fontSize: 16,
             color: COLORS.textSecondary,
+            paddingTop:20,
           }}
         >
           Bem-vindo de volta,
@@ -66,6 +68,7 @@ export default function Home() {
           marginTop: 30,
         }}
       >
+
         <Text
           style={{
             color: "#D6E4FF",
@@ -74,7 +77,21 @@ export default function Home() {
         >
           Pontuação atual
         </Text>
-
+        <View
+            style={{
+              flexDirection: "row",
+              alignItems: "flex-end",
+            }}
+          >
+        <Ionicons
+          name="star"
+          size={30}
+          color="#fff"
+          style={{
+          marginBottom: 12,
+        }}
+        />
+        
         <Text
           style={{
             color: "#fff",
@@ -85,7 +102,7 @@ export default function Home() {
         >
           12.450
         </Text>
-
+        </View>
         <Text
           style={{
             color: "#D6E4FF",
@@ -124,15 +141,29 @@ export default function Home() {
           marginTop: 25,
         }}
       >
+
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+          }}
+        >
+          <Ionicons
+            name="car"
+            size={24}
+            color="#002060"
+          />
         <Text
           style={{
             fontSize: 22,
             fontWeight: "bold",
             color: COLORS.primaryDark,
+            marginLeft: 6
           }}
         >
           Ford Ranger 2024
         </Text>
+        </View>
 
         <Text
           style={{
@@ -162,15 +193,28 @@ export default function Home() {
           marginTop: 20,
         }}
       >
-        <Text
+        <View
           style={{
-            fontSize: 20,
-            fontWeight: "bold",
-            color: COLORS.primaryDark,
+            flexDirection: "row",
+            alignItems: "center",
           }}
         >
-          Próxima revisão
-        </Text>
+          <Ionicons
+            name="build"
+            size={24}
+            color="#002060"
+          />
+          <Text
+            style={{
+              fontSize: 20,
+              fontWeight: "bold",
+              color: COLORS.primaryDark,
+              marginLeft: 8,
+            }}
+          >
+            Próxima revisão
+          </Text>
+        </View>
 
         <Text
           style={{

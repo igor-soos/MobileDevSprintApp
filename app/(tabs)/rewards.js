@@ -6,6 +6,7 @@ import {
 
 import { COLORS } from "../../src/styles/colors";
 import { globalStyles } from "../../src/styles/globalStyles";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function Rewards() {
   return (
@@ -13,9 +14,11 @@ export default function Rewards() {
       style={{
         flex: 1,
         backgroundColor: COLORS.background,
+        paddingTop:20,
       }}
       contentContainerStyle={{
         padding: 20,
+        paddingBottom: 120,
       }}
     >
       <Text style={globalStyles.title}>
@@ -43,17 +46,32 @@ export default function Rewards() {
         >
           Nível atual
         </Text>
-
+              <View
+            style={{
+              flexDirection: "row",
+              alignItems: "flex-end",
+            }}
+          >
+        <Ionicons
+          name="card-outline"
+          size={35}
+          color="#fff"
+          style={{
+          marginBottom: 6,
+        }}
+        />
         <Text
           style={{
             color: "#fff",
             fontSize: 40,
             fontWeight: "bold",
             marginTop: 10,
+            marginLeft:3
           }}
         >
           Gold
         </Text>
+        </View>
 
         <Text
           style={{
@@ -94,6 +112,20 @@ export default function Rewards() {
       </View>
 
       {/* BENEFÍCIOS */}
+      <View
+            style={{
+              flexDirection: "row",
+              alignItems: "flex-end",
+            }}
+          >
+        <Ionicons
+          name="bag-check"
+          size={22}
+          color="#002060"
+          style={{
+          marginBottom: 18,
+        }}
+        />
       <Text
         style={{
           fontSize: 22,
@@ -101,10 +133,12 @@ export default function Rewards() {
           color: COLORS.primaryDark,
           marginTop: 35,
           marginBottom: 15,
+          marginLeft: 3
         }}
       >
         Benefícios desbloqueados
       </Text>
+      </View>
 
       {[
         "10% desconto em revisões",

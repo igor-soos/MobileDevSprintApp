@@ -14,10 +14,24 @@ export const globalStyles = StyleSheet.create({
     color: COLORS.primaryDark,
   },
 
+   titleIndex: {
+    fontSize: 50,
+    fontFamily: "FordScript",
+    color: COLORS.primaryDark,
+    alignSelf: "center",
+  },
+
   subtitle: {
     fontSize: 16,
     color: COLORS.textSecondary,
     marginTop: 5,
+  },
+
+  subtitleIndex: {
+    fontSize: 16,
+    color: COLORS.textSecondary,
+    marginTop: 5,
+    alignSelf: "center",
   },
 
   input: {

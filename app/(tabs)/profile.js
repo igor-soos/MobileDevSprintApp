@@ -9,7 +9,6 @@ import {
 import { useEffect, useState } from "react";
 import { COLORS } from "../../src/styles/colors";
 import { getData } from "../../src/services/storage";
-import { removeData } from "../../src/services/storage";
 import { router } from "expo-router";
 
 export default function Profile() {
@@ -36,6 +35,7 @@ export default function Profile() {
       style={{
         flex: 1,
         backgroundColor: COLORS.background,
+        paddingBottom: 75,
       }}
       contentContainerStyle={{
         padding: 20,

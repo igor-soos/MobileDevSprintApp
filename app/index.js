@@ -3,6 +3,7 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
+  Image,
 } from "react-native";
 
 import { useState } from "react";
@@ -17,15 +18,28 @@ export default function Login() {
 
   return (
     <View style={globalStyles.container}>
-      <Text style={globalStyles.title}>
+      <View style={{ marginTop: 40 }}></View>
+      <Text style={globalStyles.titleIndex}>
         WeFord
       </Text>
 
-      <Text style={globalStyles.subtitle}>
+      <Text style={globalStyles.subtitleIndex}>
         Seu programa de fidelidade Ford
       </Text>
 
-      <View style={{ marginTop: 40 }}>
+      <Image
+  source={require("../assets/icon.png")}
+  style={{
+    width: 220,
+    height: 220,
+    resizeMode: "contain",
+    alignSelf: "center",
+    marginTop: 10,
+    marginBottom: 10,
+  }}
+/>
+
+      <View style={{ marginTop: 5 }}>
 
         <TextInput
           placeholder="E-mail"
