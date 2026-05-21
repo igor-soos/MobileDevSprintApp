@@ -17,7 +17,6 @@ export default function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [vin, setVin] = useState("");
   const [password, setPassword] = useState("");
 
   return (
@@ -70,13 +69,6 @@ export default function Register() {
         />
 
         <TextInput
-          placeholder="VIN do veículo"
-          value={vin}
-          onChangeText={setVin}
-          style={globalStyles.input}
-        />
-
-        <TextInput
           placeholder="Senha"
           secureTextEntry
           value={password}
@@ -103,7 +95,6 @@ export default function Register() {
               name,
               email,
               phone,
-              vin,
               password,
             };
 

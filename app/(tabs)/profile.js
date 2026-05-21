@@ -176,7 +176,7 @@ export default function Profile() {
               fontSize: 15,
             }}
           >
-            VIN: {user?.vin || "Não cadastrado"}
+            VIN: 3FTTW8S98RRA12345
           </Text>
         </View>
       </View>

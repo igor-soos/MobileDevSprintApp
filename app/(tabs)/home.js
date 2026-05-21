@@ -180,7 +180,7 @@ export default function Home() {
             color: COLORS.textSecondary,
           }}
         >
-          VIN: {user?.vin || "Não cadastrado"}
+          VIN: 3FTTW8S98RRA12345
         </Text>
       </View>
 
