@@ -8,21 +8,34 @@ import { COLORS } from "../../src/styles/colors";
 import { useEffect, useState } from "react";
 import { getData } from "../../src/services/storage";
 import { Ionicons } from "@expo/vector-icons";
+import { getFipePrice } from "../../src/services/fipe";
 
 export default function Home() {
 
   const [user, setUser] = useState(null);
+  const [fipe, setFipe] = useState(null);
   useEffect(() => {
-    async function loadUser() {
-      const storedUser = await getData("user");
 
-      if (storedUser) {
-        setUser(storedUser);
-      }
+  async function loadUser() {
+    const storedUser = await getData("user");
+
+    if (storedUser) {
+      setUser(storedUser);
     }
+  }
 
-    loadUser();
-  }, []);
+  async function loadFipe() {
+    const result = await getFipePrice();
+
+    if (result) {
+      setFipe(result);
+    }
+  }
+
+  loadUser();
+  loadFipe();
+
+}, []);
 
   return (
     <ScrollView
@@ -173,6 +186,42 @@ export default function Home() {
         >
           Garantia ativa até 2027
         </Text>
+
+        <Text
+          style={{
+            marginTop: 8,
+            color: COLORS.primaryDark,
+            fontWeight: "bold",
+            fontSize: 16,
+          }}
+        >
+          FIPE: {fipe?.Valor || "Consultando Tabela..."}
+        </Text>
+
+        <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              marginTop: 8,
+            }}
+          >
+            <Ionicons
+              name="trending-up"
+              size={18}
+              color="#1E9E5A"
+            />
+
+            <Text
+              style={{
+                marginLeft: 6,
+                color: "#1E9E5A",
+                fontWeight: "600",
+              }}
+            >
+              Valorização de 2,4% nos últimos 6 meses
+            </Text>
+          </View>
+        
 
         <Text
           style={{

@@ -1,46 +1,31 @@
 import { Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import {
-
   View,
-
   StyleSheet,
-
   Pressable,
-
   Text,
-
   Dimensions,
-
 } from "react-native";
-
 import { BlurView } from "expo-blur";
-
 import * as Haptics from "expo-haptics";
-
 import { COLORS } from "../../src/styles/colors";
- 
+
 export default function TabsLayout() {
 
   return (
 <Tabs
-
       screenOptions={{
-
         headerShown: false,
-
+        animation: "shift",
       }}
-
       tabBar={(props) => <CustomPillTabBar {...props} />}
 >
 <Tabs.Screen
 
         name="home"
-
         options={{
-
           title: "Início",
-
           tabBarIcon: ({ color, size }) => (
 <Ionicons name="home" size={size} color={color} />
 
