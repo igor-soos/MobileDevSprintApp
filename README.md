@@ -82,6 +82,11 @@
 
 <img width="311" height="618" alt="image" src="https://github.com/user-attachments/assets/075925c3-e40d-4213-b4b6-7ddd483ce663" />
 
+
+## Demonstração:
+https://youtube.com/https://youtube.com/shorts/lBms_NgyUFU?feature=share
+
+
 ## Decisões Técnicas
 
 ### Stack utilizada
@@ -186,10 +191,8 @@ npx expo start
 
 OBS: Certifique-se de que o celular e o computador estejam na mesma rede Wi-Fi.
 
-## Demonstração:
-https://youtube.com/
 
-### Estrutura do projeto
+## Estrutura do projeto
 
 ```text
 MobileDevSprintApp/
