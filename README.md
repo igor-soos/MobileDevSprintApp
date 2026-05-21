@@ -32,6 +32,7 @@
 - sistema de recompensas
 - integração com API FIPE
 - interface moderna com identidade visual inspirada na Ford
+- Animação de transição entre telas
 
 ## Funcionalidades implementadas
 
