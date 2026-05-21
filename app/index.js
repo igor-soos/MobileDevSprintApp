@@ -18,28 +18,26 @@ export default function Login() {
 
   return (
     <View style={globalStyles.container}>
-      <View style={{ marginTop: 40 }}></View>
+      <View style={{ marginTop: 10 }}></View>
+
+<Image
+        source={require("../assets/icon.png")}
+        style={{
+          width: 220,
+          height: 220,
+          resizeMode: "contain",
+          alignSelf: "center",
+        }}
+      />
+      
       <Text style={globalStyles.titleIndex}>
         WeFord
       </Text>
-
       <Text style={globalStyles.subtitleIndex}>
         Seu programa de fidelidade Ford
       </Text>
 
-      <Image
-  source={require("../assets/icon.png")}
-  style={{
-    width: 220,
-    height: 220,
-    resizeMode: "contain",
-    alignSelf: "center",
-    marginTop: 10,
-    marginBottom: 10,
-  }}
-/>
-
-      <View style={{ marginTop: 5 }}>
+      <View style={{ marginTop: 50 }}>
 
         <TextInput
           placeholder="E-mail"

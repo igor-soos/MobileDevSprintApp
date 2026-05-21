@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { COLORS } from "../../src/styles/colors";
 import { getData } from "../../src/services/storage";
 import { router } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function Profile() {
 
@@ -111,17 +112,73 @@ export default function Profile() {
           Informações
         </Text>
 
-        <Text style={{ marginBottom: 10 }}>
-          📧 {user?.email || "email@ford.com"}
-        </Text>
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            marginBottom: 14,
+          }}
+        >
+          <Ionicons
+            name="mail-outline"
+            size={22}
+            color={COLORS.primaryDark}
+          />
 
-        <Text style={{ marginBottom: 10 }}>
-          📱 {user?.phone || "(00) 00000-0000"}
-        </Text>
+          <Text
+            style={{
+              marginLeft: 10,
+              fontSize: 15,
+            }}
+          >
+            {user?.email || "email@ford.com"}
+          </Text>
+        </View>
 
-        <Text>
-          🚘 VIN: {user?.vin || "Não cadastrado"}
-        </Text>
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            marginBottom: 14,
+          }}
+        >
+          <Ionicons
+            name="call-outline"
+            size={22}
+            color={COLORS.primaryDark}
+          />
+
+          <Text
+            style={{
+              marginLeft: 10,
+              fontSize: 15,
+            }}
+          >
+            {user?.phone || "(00) 00000-0000"}
+          </Text>
+        </View>
+
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+          }}
+        >
+          <Ionicons
+            name="car-sport-outline"
+            size={22}
+            color={COLORS.primaryDark}
+          />
+
+          <Text
+            style={{
+              marginLeft: 10,
+              fontSize: 15,
+            }}
+          >
+            VIN: {user?.vin || "Não cadastrado"}
+          </Text>
+        </View>
       </View>
 
       {/* NOTIFICAÇÕES */}
@@ -223,12 +280,10 @@ export default function Profile() {
       </View>
 
       {/* BOTÃO */}
-      <TouchableOpacity
-          onPress={async () => {
-            await removeData("user");
-
-            router.replace("/");
-          }}
+      <TouchableOpacity       
+        onPress={() => {
+          router.replace("/");
+        }}
         style={{
           backgroundColor: "#D9534F",
           padding: 16,
@@ -236,13 +291,22 @@ export default function Profile() {
           marginTop: 30,
           alignItems: "center",
           marginBottom: 40,
+          flexDirection: "row",
+          justifyContent: "center",
         }}
       >
+        <Ionicons
+          name="log-out-outline"
+          size={22}
+          color="#fff"
+        />
+
         <Text
           style={{
             color: "#fff",
             fontWeight: "bold",
             fontSize: 16,
+            marginLeft: 8,
           }}
         >
           Sair da conta

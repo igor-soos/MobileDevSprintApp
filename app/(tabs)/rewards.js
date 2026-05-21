@@ -22,7 +22,7 @@ export default function Rewards() {
       }}
     >
       <Text style={globalStyles.title}>
-        WeFord Rewards
+        WeFord Prêmios
       </Text>
 
       <Text style={globalStyles.subtitle}>

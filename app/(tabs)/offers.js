@@ -4,40 +4,44 @@ import {
   ScrollView,
   TouchableOpacity,
 } from "react-native";
-
+import { Ionicons } from "@expo/vector-icons";
 import { COLORS } from "../../src/styles/colors";
 import { globalStyles } from "../../src/styles/globalStyles";
 
 export default function Offers() {
   const offers = [
-    {
-      title: "Revisão Premium",
-      discount: "20% OFF",
-      description:
-        "Desconto especial na revisão programada do seu Ford.",
-    },
+  {
+    title: "Revisão Premium",
+    discount: "20% OFF",
+    icon: "construct",
+    description:
+      "Desconto especial na revisão programada do seu Ford.",
+  },
 
-    {
-      title: "Garantia Estendida",
-      discount: "+1 Ano",
-      description:
-        "Extenda sua garantia com condições exclusivas.",
-    },
+  {
+    title: "Garantia Estendida",
+    discount: "+1 Ano",
+    icon: "time",
+    description:
+      "Extenda sua garantia com condições exclusivas.",
+  },
 
-    {
-      title: "Brindes Ford",
-      discount: "15% OFF",
-      description:
-        "Utilize seus pontos para ganhar brindes!",
-    },
+  {
+    title: "Brindes Ford",
+    discount: "15% OFF",
+    icon: "gift",
+    description:
+      "Utilize seus pontos para ganhar brindes!",
+  },
 
-    {
-      title: "Troca de Pneus",
-      discount: "10% OFF",
-      description:
-        "Condição especial para clientes Gold.",
-    },
-  ];
+  {
+    title: "Troca de Pneus",
+    discount: "10% OFF",
+    icon: "car-sharp",
+    description:
+      "Condição especial para clientes Gold.",
+  },
+];
 
   return (
     <ScrollView
@@ -90,16 +94,30 @@ export default function Offers() {
           </View>
 
           {/* TÍTULO */}
-          <Text
+          <View
             style={{
-              fontSize: 24,
-              fontWeight: "bold",
-              color: COLORS.primaryDark,
+              flexDirection: "row",
+              alignItems: "center",
               marginTop: 18,
             }}
           >
-            {offer.title}
-          </Text>
+            <Ionicons
+              name={offer.icon}
+              size={24}
+              color={COLORS.primaryDark}
+            />
+
+            <Text
+              style={{
+                fontSize: 24,
+                fontWeight: "bold",
+                color: COLORS.primaryDark,
+                marginLeft: 10,
+              }}
+            >
+              {offer.title}
+            </Text>
+          </View>
 
           {/* DESCRIÇÃO */}
           <Text

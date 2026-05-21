@@ -39,7 +39,7 @@ export default function TabsLayout() {
 
         options={{
 
-          title: "Home",
+          title: "Início",
 
           tabBarIcon: ({ color, size }) => (
 <Ionicons name="home" size={size} color={color} />
@@ -73,7 +73,7 @@ export default function TabsLayout() {
 
         options={{
 
-          title: "Rewards",
+          title: "Prêmios",
 
           tabBarIcon: ({ color, size }) => (
 <Ionicons name="diamond" size={size} color={color} />
